@@ -1,0 +1,33 @@
+<ion-view view-title="My Report" >
+  <ion-content padding="true" style="background: url(img/blue.png) no-repeat center;background-size:cover;" class="has-header">
+
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+
+      <div class="spacer" style="width: 50px; height: 12px;"></div>
+
+
+
+      <div class="list  my-menu">
+
+           <a class="item item-avatar"  ng-repeat="report in reports" ng-click="openrepModal(report)">
+               <img ng-src=" {{report.img_url}}">
+               <h2 class="stable">Case ID: {{report.id}}</h2>
+               <h2 class="stable">Case status: {{report.status}} </h2>
+               <h3 class="stable">Case Description</h3>
+               <p style="color:white">{{report.description}}</p>
+           </a>
+
+
+
+       </div>
+      
+
+
+
+
+
+  </ion-content>
+</ion-view>

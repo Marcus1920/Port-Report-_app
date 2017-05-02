@@ -1,0 +1,125 @@
+<ion-view view-title="New Report" >
+  <ion-content padding="true" style="background: url(img/blue.png) no-repeat center;background-size:cover;" class="has-header">
+   <div class="spacer" style="width: 300px; height: 12px;"></div>
+   <div class="row row-center">
+              <div class="col center">
+                  <h1 class="info">Enter the details for your Report</h1>
+
+
+              </div>
+          </div>
+   <div id="map" style="width: 100%; height: 50%" data-tap-disabled="true" ></div>
+
+   <div class="spacer" style="width: 300px; height: 12px;"></div>
+   <div class="row row-center" ng-if="!categories">
+              <div class="col center">
+                  <p class="info">Loading Categories</p>
+
+              </div>
+          </div>
+
+
+          <div class="animate" ng-if="alertBad">
+              <div class="report-message">
+                  <p class="alert">
+                      {{message}}
+                  </p>
+
+
+                  <hr style="opacity: 0.2;" />
+
+            <button ng-click="gohome()"  class=" button  button-assertive  button-block "   name="button"> Try Again </button>
+                              </div>
+          </div>
+          <div class="animate-if" ng-if="alertGood">
+              <div class="report-message">
+                  <p class="success">
+                      {{message}}
+
+
+
+                        </p>
+                  <hr style="opacity: 0.2;" />
+
+
+
+              <button ng-click="gohome()"  class=" button button-balanced   button-block "   name="button"> Done </button>
+                              </div>
+
+
+        </div>
+
+
+
+
+          <form ng-if="!succes">
+                        <div class="list list-inset" ng-if="categories">
+                  <label class="item item-input item-select">
+                      <div class="input-label">
+                           Category
+                      </div>
+
+                      <select ng-options="category as category.name for category in categories" ng-model="cat.selected" ng-change="update()" required="true">
+                          <option value="" selected>--Please select case category--</option>
+                      </select>
+                  </label>
+              </div>
+              <div class="list list-inset" ng-if="subs.length">
+                  <label class="item item-input item-select">
+                      <div class="input-label">
+                          Sub Category
+                      </div>
+
+                      <select ng-options="sub as sub.name for sub in subs" ng-model="Sub.selected" ng-change="updateSub()">
+                          <option value="" selected>--Please select case sub category--</option>
+                          <option ng-repeat="sub in subs" value="{{sub.name}}">{{sub.name}}</option>
+                      </select>
+                  </label>
+              </div>
+
+
+              <div class="list list-inset">
+                  <label class="item item-input  item-stacked-label">
+                      <div class="input-label">
+                          Report Description
+                      </div>
+                      <!--  <i class="icon ion-person placeholder-icon"></i> -->
+                      <textarea ng-model="report.description" required placeholder="Enter Your Description"></textarea>
+                      <!--  <input type="text" placeholder="John Doe" ng-model="user.name" required> -->
+                  </label>
+              </div>
+
+ <br>
+ <div class="uplod" ng-init="showMessage = false" >
+   <input type="file" ng-model="img" accept="image/*" ng-change="showMessage = true"  id="FileInput" style="position:absolute; left: -1000px;">
+
+ </div>
+ <br>
+ <button class="button button-block button-assertive toggle btn-50" ng-click="takePicture()" style="max-width: 100% !important;display:inline-block;"><i class="ion-camera" style="font-size: 48px;"></i>
+                     </button>
+                     <button class="button button-block button-assertive  my-menu  toggle btn-50" ng-click="pickPicture()" style="max-width: 100% !important;display:inline-block;"><i class="ion-images" style="font-size: 48px;"></i>
+                                         </button>
+                                         <br>
+                                         <p class="uploadMessage" ng-if="showMessage">File Selected</p>
+                                         <br>
+
+              <div class="col-50">
+                     <img ng-src="{{imgSrc}}" width="100%" height="100px" ng-if="img">
+                 </div>
+
+
+ <div class="my-menu">
+
+
+             <label class="my-menu" id="newreport-input1">
+                 <input type="hidden" ng-model="long"placeholder="">
+             </label>
+             <br>
+             <label  id="newreport-input2">
+                 <input type="hidden" placeholder="" ng-model="latt">
+             </label>
+             <button id="newreport-button5"  ng-click="postReport()" class=" button button-assertive  button-block ">Send Report</button>
+ </div>
+         </form>
+     </ion-content>
+</ion-view>

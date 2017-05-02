@@ -1,0 +1,145 @@
+<ion-view title="Login" id="page4" class=" ">
+    <ion-content padding="true" style="background: url(img/blue.png) no-repeat center;background-size:cover;" class="has-header">
+
+      <img src="img/logo.png" alt="" style="display: block; margin:auto; width:200px;"  />
+<br>
+    <div class=""  >
+      <div ng-if="!normal">
+      <form class="list" ng-if="!toggleLog">
+             <div class="animate-if" ng-if="card">
+                 <p class="alert">
+                     {{message}}
+                 </p>
+             </div>
+             <div class="animate-if" ng-if="cardSuccess">
+                 <p class="success">
+                     {{message}}
+                 </p>
+             </div>
+
+             <label class="item item-input">
+
+                 <input type="text" placeholder="Mobile Number" ng-model="user.cell" required>
+             </label>
+<br>
+             <label class="item item-input">
+                 <i class="icon ion-locked placeholder-icon"></i>
+                 <input type="password" placeholder="Password" ng-model="user.password" required>
+             </label>
+             <br/>
+             <div class="sub">
+                 <button class="button button-block button-assertive" ng-click="login(firstname,lastname)">Login</button>
+                 <br/>
+               <!--       <p  ng-click="toggleReset()" style="color:white;" class="info">Register if  you  Not  a  user</p>
+                <!--  <div class="center">
+                     <p class="reg-text">Not a member yet?</p>
+                     <button ng-click="toggleButton()" class="button button-clear button-assertive  toggle-btn">Sign up here</button>
+                 </div> -->
+
+                 <br/>
+
+             </div>
+
+
+
+         </form>
+
+         <br/>
+
+ </div>
+
+
+
+
+ <form class="list" ng-if="toggleLog" >
+      <div class="animate-if" ng-if="cardReg">
+          <p class="alert">
+              {{message}}
+          </p>
+      </div>
+
+      <label class="item item-input">
+          <i class="icon ion-person placeholder-icon"></i>
+          <input type="text" placeholder="First Name" ng-model="user.firstName" required>
+      </label>
+ <br>
+      <label class="item item-input">
+          <i class="icon ion-person placeholder-icon"></i>
+          <input type="text" placeholder="Surname" ng-model="user.name" required>
+      </label>
+ <br>
+      <label class="item item-input">
+          <i class="icon ion-person placeholder-icon"></i>
+          <input type="text" placeholder="ID Number" ng-model="user.ID" required>
+      </label>
+<br>
+      <label class="item item-input">
+
+          <input type="text" placeholder="Mobile Number" ng-model="user.cell" required>
+      </label>
+<br>
+      <label class="item item-input">
+          <i class="icon ion-at placeholder-icon"></i>
+          <input type="text" placeholder="Email Address" ng-model="user.email" required>
+      </label>
+<br>
+      <label class="item item-input">
+          <i class="icon ion-locked placeholder-icon"></i>
+          <input type="password" placeholder="Password" ng-model="user.password" required>
+      </label>
+      <br/>
+
+      <div class="">
+          <button class="button button-block button-assertive toggle" ng-click="register()">Register</button>
+          <div class="">
+            <button ng-click="toggleButton()" class="button button-block button-assertive  toggle-btn">Login here</button>
+        </div>
+          </div>
+          <br/>
+
+      </div>
+
+
+
+  </form>
+       </div>
+
+  <!--
+
+	    <label class="item item-input">
+            <span class="input-label">Message: </span>
+            <input type="text" ng-model="newMessage">
+        </label>
+    </div>
+    <div>
+        <button class="button button-block" ng-click="save(newMessage)">
+            Save
+        </button>
+        <button class="button button-block" ng-click="load()">
+            Load
+        </button>
+        <p>{{ statusMessage }}</p>
+
+	    <div class="animate-if" ng-if="cardReg">
+          <p class="alert">
+              {{message}}
+          </p>
+      </div>
+
+-->
+
+	   <ion-list>
+
+	           <!--     <ion-item >
+
+    <h3> H!  </h3>
+
+  </ion-item>
+  <ion-item ng-repeat="session in tasks">
+    <h3> {{session.id}}     {{session.firstname}}  </h3>
+
+  </ion-item>
+</ion-list>
+ -->
+    </ion-content>
+</ion-view>
